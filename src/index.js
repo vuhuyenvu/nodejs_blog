@@ -27,6 +27,12 @@ app.set('views', path.join(__dirname, 'resources/views'));
 app.get('/', function (req, res) {
     res.render('home')
 });
+app.get('/search', function (req, res) {
+  console.log(req.query.q)//lay value qua url
+  res.render('search')
+});
+
+ 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
