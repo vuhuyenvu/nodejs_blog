@@ -6,6 +6,13 @@ const { extname } = require('path')// dat lai ten
 const app = express()
 const port = 3000
 
+// su dung thu vien body-parser - form data - input ra console.log
+app.use(express.urlencoded({
+  extended :true
+}))
+app.use(express.json())
+//gui code js
+
 // neu la file tinh se vao public
 app.use(express.static(path.join(__dirname,'public')))
 
@@ -37,8 +44,10 @@ app.get('/search', function (req, res) {
   // console.log(req.query.q)//lay value qua url
   res.render('search')
 });
-
- 
+app.post('/search', function (req, res) {
+ console.log(req.body)//form data
+  res.send('oke')
+});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
