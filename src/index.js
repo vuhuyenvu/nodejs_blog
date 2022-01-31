@@ -6,6 +6,9 @@ const { extname } = require('path')// dat lai ten
 const app = express()
 const port = 3000
 
+
+const route = require('./routes')
+
 // su dung thu vien body-parser - form data - input ra console.log
 app.use(express.urlencoded({
   extended :true
@@ -31,23 +34,9 @@ app.set('views', path.join(__dirname, 'resources/views'));
 
 // console.log('PATH' , path.join(__dirname, 'resources/views') )
 
-app.get('/', function (req, res) {
-    res.render('home')
-});
+//Route init
+route(app)
 
-app.get('/news', function (req, res) {
-  console.log(req.query.q)
-  res.render('news')
-});
-
-app.get('/search', function (req, res) {
-  // console.log(req.query.q)//lay value qua url
-  res.render('search')
-});
-app.post('/search', function (req, res) {
- console.log(req.body)//form data
-  res.send('oke')
-});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
