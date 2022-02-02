@@ -3,12 +3,14 @@ const express = require('express')
 const morgan = require('morgan')
 const { engine } = require('express-handlebars')
 const { extname } = require('path')// dat lai ten
+const mysql = require('mysql')
+
 const app = express()
 const port = 3000
 
 
 const route = require('./routes')
-
+const connect = require('./routes/connectDatabase')
 // su dung thu vien body-parser - form data - input ra console.log
 app.use(express.urlencoded({
   extended :true
@@ -36,6 +38,7 @@ app.set('views', path.join(__dirname, 'resources/views'));
 
 //Route init
 route(app)
+connect.cnDB()
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
