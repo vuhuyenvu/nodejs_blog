@@ -18,6 +18,7 @@
     "url": "https://github.com/vuhuyenvu/nodejs_blog/issues"
   },
   "homepage": "https://github.com/vuhuyenvu/nodejs_blog#readme",
+ 
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

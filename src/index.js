@@ -39,9 +39,9 @@ app.set('views', path.join(__dirname, 'resources/views'));
 // console.log('PATH' , path.join(__dirname, 'resources/views') )
 
 //Route init
-            route(app);
-            connect.cnDB();
+      route(app);
+connect.cnDB();
 
-    app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
