@@ -1,22 +1,12 @@
-// employee.controller.js 
+// employee.controller.js
 'use strict';
 const Employee = require('../../models/employee.model');
 
-var dbConn = require('../../config/db/db.config');
-class EmployeeController {
-  getAll() {
-   
-    dbConn.query("Select * from employees", function (err, res) {
-      
-        if(err) {
-          console.log("error: ", err);        
-        }
-        else{
-          console.log('employees : ', res);
-        
-        }
+exports.getAll = function (req, res) {
+    Employee.getAll(function (err, employee) {
+        console.log('controller');
+        if (err) res.send(err);
+        console.log('res', employee);
+        res.send(employee);
     });
-  };
-}
-
-module.exports = new EmployeeController();
+};
