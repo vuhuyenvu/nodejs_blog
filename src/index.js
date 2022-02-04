@@ -4,6 +4,10 @@ const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const { extname } = require('path'); // dat lai ten
 const mysql = require('mysql');
+const session = require('express-session');
+// const flash = require('connect-flash');
+
+// const expressValidator = require('express-validator');
 
 const app = express();
 const port = 3000;
@@ -11,12 +15,23 @@ const port = 3000;
 const route = require('./routes');
 const db = require('./config/db/index');
 
+// app.use(session({
+//     secret:'geeksforgeeks',
+//     saveUninitialized: true,
+//     resave: true
+// }));
+
+// app.use(flash());
+
+// app.use(expressValidator());  //this line to be addded
+
 // su dung thu vien body-parser - form data - input ra console.log
 app.use(
     express.urlencoded({
         extended: true,
     }),
 );
+
 app.use(express.json());
 //gui code js
 

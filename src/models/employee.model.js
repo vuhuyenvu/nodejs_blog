@@ -2,9 +2,9 @@
 'use strict';
 var dbConn = require('../config/db/db.config');
 
-//Employee object create
-
+//Employee object creavar
 var Employee = function (employee) {
+    this.id = employee.id;
     this.first_name = employee.first_name;
     this.last_name = employee.last_name;
     this.email = employee.email;
